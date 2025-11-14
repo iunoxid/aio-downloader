@@ -1,4 +1,4 @@
-LINK BOT t.me/aio_downloaders_bot
+LINK BOT https://t.me/aio_downloaders_bot
 
 AIO Downloader Telegram Bot
 
