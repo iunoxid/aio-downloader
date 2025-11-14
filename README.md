@@ -11,7 +11,7 @@ AIO Downloader Telegram Bot
   - YouTube;
 
 
-  - Memanggil API downloader lalu mengirim media ke pengguna.Audio (MP3) tidak dikirim otomatis; tersedia tombol inline "Download MP3" per item.
+- Memanggil API downloader lalu mengirim media ke pengguna.Audio (MP3) tidak dikirim otomatis; tersedia tombol inline "Download MP3" per item.
 
 Fitur
 - Deteksi platform dari hostname/path (TikTok, Douyin, Instagram, Threads, Facebook, YouTube).
