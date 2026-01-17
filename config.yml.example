@@ -6,7 +6,7 @@ endpoints:
   # Optional per-platform overrides (keys are platform names in lowercase)
   # If omitted or empty, the default above is used.
   per_platform:
-    tiktok: https://api.pitucode.com/downloader/aio
+    tiktok: https://api.pitucode.com/downloader/ttsave
     douyin: https://api.pitucode.com/douyin-downloader
     instagram: https://api.pitucode.com/downloader/aio
     threads: https://api.pitucode.com/downloader/aio

@@ -4,9 +4,10 @@ import os
 from typing import Any
 
 import aiohttp
+from tenacity import RetryError
 
 from bot.context import BotContext
-from bot.downloader_client import DownloaderClient
+from bot.downloader_client import DownloaderClient, DownloaderError
 
 
 def get_base_url_for(ctx: BotContext, platform_name: str) -> str:
@@ -54,5 +55,11 @@ async def fetch_with_redirect(ctx: BotContext, api: DownloaderClient, session: a
     resolved = await api.resolve_redirects(session, url)
     if resolved != url:
         logger.info("url_resolved id=%s from=%s to=%s", req_id, url, resolved)
-    data = await api.fetch(session, resolved)
-    return data
+    try:
+        data = await api.fetch(session, resolved)
+        return data
+    except RetryError as e:
+        cause = e.last_attempt.exception() if e.last_attempt else None
+        if isinstance(cause, DownloaderError):
+            raise cause
+        raise DownloaderError("Downloader failed after retries") from e
