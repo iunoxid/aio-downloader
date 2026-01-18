@@ -8,7 +8,7 @@ endpoints:
   per_platform:
     tiktok: https://api.pitucode.com/downloader/ttsave
     douyin: https://api.pitucode.com/douyin-downloader
-    instagram: https://api.pitucode.com/downloader/aio
+    instagram: https://api.pitucode.com/downloader/igstory
     threads: https://api.pitucode.com/downloader/aio
-    facebook: https://api.pitucode.com/downloader/aio
+    facebook: https://api.pitucode.com/downloader/fbdown
     youtube: https://api.pitucode.com/downloader/aio
