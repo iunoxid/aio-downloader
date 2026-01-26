@@ -2,13 +2,13 @@ LINK BOT https://t.me/aio_downloaders_bot
 
 AIO Downloader Telegram Bot
 
-- Bot menerima link dari
-  - TikTok,
-  - Facebook,
-  - Instagram,
-  - Threads,
-  - Douyin, dan
-  - YouTube;
+- Bot menerima link dari:
+  - TikTok (aktif)
+  - Facebook (belum)
+  - Instagram (belum)
+  - Threads (belum)
+  - Douyin (belum)
+  - YouTube (belum)
 
 
 - Memanggil API downloader lalu mengirim media ke pengguna.Audio (MP3) tidak dikirim otomatis; tersedia tombol inline "Download MP3" per item.

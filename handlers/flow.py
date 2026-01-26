@@ -60,7 +60,7 @@ async def send_result_flow(ctx: BotContext, *, platform: str, message, result: d
                 try:
                     await message.reply_video(
                         video=best_video_url,
-                        caption=caption_text,
+                        caption=caption_text or None,
                         supports_streaming=True,
                         reply_markup=kb,
                     )
@@ -90,7 +90,7 @@ async def send_result_flow(ctx: BotContext, *, platform: str, message, result: d
                                     bio.name = filename
                                     await message.reply_video(
                                         video=bio,
-                                        caption=caption_text,
+                                        caption=caption_text or None,
                                         supports_streaming=True,
                                         reply_markup=kb,
                                     )
@@ -125,7 +125,10 @@ async def send_result_flow(ctx: BotContext, *, platform: str, message, result: d
 
     # If no video was sent, send caption + buttons after images
     if not video_sent:
-        if kb:
-            await message.reply_text(caption_text, reply_markup=kb)
-        else:
-            await message.reply_text(caption_text)
+        if caption_text:
+            if kb:
+                await message.reply_text(caption_text, reply_markup=kb)
+            else:
+                await message.reply_text(caption_text)
+        elif kb:
+            await message.reply_text(".", reply_markup=kb)

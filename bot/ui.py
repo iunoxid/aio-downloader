@@ -10,11 +10,15 @@ from .media_utils import iter_medias, is_audio
 
 def build_summary_keyboard(ctx: BotContext, result: dict, *, user_id: int, chat_id: int, message_id: int | None = None) -> InlineKeyboardMarkup | None:
     buttons: List[List[InlineKeyboardButton]] = []
+    seen_audio_urls = set()
     # audio-only buttons (per requirements)
     for idx, m in iter_medias(result):
         url = m.get("url") or m.get("download_url") or ""
         ext = (m.get("extension") or m.get("ext") or "").lower()
+        if not url or url in seen_audio_urls:
+            continue
         if is_audio(m) or ext == "mp3":
+            seen_audio_urls.add(url)
             token = ctx.callbacks.new_audio_token(
                 user_id=user_id,
                 chat_id=chat_id,
